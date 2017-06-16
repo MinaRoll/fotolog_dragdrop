@@ -70,16 +70,22 @@ function agregaPosteo() {
   document.getElementById("cajaposteos").value = "";
 }
 
+//Creamos la función para arrastrar
 function drag(ev) {
-  console.log(ev.target.src);
+  console.log(ev.target.src);//Verificamos en consola lo que va ocurriendo
+  //indicamos el tipo de dato que vamos a insertar
   ev.dataTransfer.setData('text', ev.target.id);
 }
 
+//Inicializamos Drop
 function permitirDrop(ev){
+  //evitamos que el navegador manipule nuestros datos
   ev.preventDefault();
 }
 function drop(ev) {
   ev.preventDefault();
+  //tomamos el dato que hemos arrastrado
   var id_foto = ev.dataTransfer.getData('text');
+  //agregamos el elemento arrastrado al elemento en el que se produjo el evento ondrop
   ev.target.appendChild(document.getElementById(id_foto));
 }
